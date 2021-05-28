@@ -6,7 +6,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 
-const employeeController = require('./controllers/employeeController');
+const usersController = require('./controllers/usersController');
 
 var app = express();
 app.use(bodyparser.urlencoded({
