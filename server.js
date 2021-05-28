@@ -17,10 +17,10 @@ var app = express();
     const page=await browser.newPage();
     await page.goto('https://www.instagram.com/accounts/login', { waitUntil: "networkidle2" });
     await page.type('input[name=username]', 'username', { delay: 20 }); // in username add any instagram username
-    await page.type('input[name=password]', 'password', { delay: 20 }); // in password add any instagram password
+    await page.type('input[name=password]', 'password', { delay: 20 }); // in password add instagram password of the username entered
     await page.click('button[type=submit]', { delay: 20 });
     await page.waitFor(5000);
-    await page.goto(`https://www.instagram.com/gautaamm`, { waitUntil: "networkidle2" });
+    await page.goto(`https://www.instagram.com/username`, { waitUntil: "networkidle2" });
     
     await page.waitFor(2000);
     
@@ -34,8 +34,8 @@ var app = express();
        const totalclicks=await page.$$('._7zQEa');
       console.log('tl',totalclicks.length);
        for(let j=0;j<totalclicks.length;j++){
-        let image=await page.$eval(".qbCDp img",img=>img.src);
-         usercontroller.insertrecord(username,image);
+        let imagesrc=await page.$eval(".qbCDp img",img=>img.src);
+         usercontroller.insertrecord(username,imagesrc);
          
         const button1=await page.$('.FhutL');
         
