@@ -21,7 +21,7 @@ var app = express();
     await page.click('button[type=submit]', { delay: 20 });
     await page.waitFor(5000);
     await page.goto(`https://www.instagram.com/gautaamm`, { waitUntil: "networkidle2" });
-    "]');
+    
     await page.waitFor(2000);
     
     const imageURL=await page.$$(".Ckrof");
@@ -35,7 +35,8 @@ var app = express();
       console.log('tl',totalclicks.length);
        for(let j=0;j<totalclicks.length;j++){
         let image=await page.$eval(".qbCDp img",img=>img.src);
-        console.log(image);
+         usercontroller.insertrecord(username,image);
+         
         const button1=await page.$('.FhutL');
         
        button1.click();}
